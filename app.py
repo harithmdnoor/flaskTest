@@ -5,13 +5,7 @@ import time
 import os
 import re
 app = Flask(__name__)
-chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument("--headless")
-chrome_options.add_argument("--disable-dev-shm-usage")
-chrome_options.add_argument("--no-sandbox")
-chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
 
-browser = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
 @app.route("/")
 def home():
@@ -25,7 +19,13 @@ def my_form_post():
     return render_template('hello_there.html',data = data)
 
 def checkPay(userInput,passInput):
-    browser = webdriver.Chrome(execution_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)    
+    options = webdriver.ChromeOptions()
+    options.add_argument("--headless")
+    options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--no-sandbox")
+    options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+
+    browser = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=options)
     todayDate = datetime.today()
     yesterdayDate = todayDate - timedelta(days=1)
     url1 = "https://abs.rafflesmedical.com.sg/eroster/Account/Logout"
