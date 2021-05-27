@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta charset="utf-8" />
+      <meta name="description" content="blank" />
+      <meta content="width=device-width, initial-scale=1" name="viewport" />
+      <title>Login</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+      <!-- <script type=text/javascript src="{{url_for('static', filename='js/main.js') }}"></script> -->
+   </head>
+   <body>
+      <div id="myNav" class="overlay">
+         <div class="overlay-content">
+          <h1>Loading!!</h1>
+         </div>
+       </div>
+      <h1 class="loginText">Check HCA Pay Calculator (PRE ONLY!!)</h1>
+      <div class="content">
+         <form class="loginform" method="POST">
+            <div class="question" id = "question1">
+               <input type="text" name="username" id="name" autocomplete="off"/>
+               <label>Username</label>
+            </div>
+            <div class="question" id = "question2">
+               <input type="password" name="password" id="password"/>
+               <label>Password</label>
+               <button id ="submit" type="submit" onclick="openNav()" class="login">Check Pay!</button>
+            </div>
+      </div>
+      </div>
+      </fieldset>
+      </form>
+      </div>
+      <script>
+
+         function openNav() {
+            document.getElementById("myNav").style.display = "block";
+            var content1 = document.getElementById("question1");
+            content1.style.display = "none";
+            var content2 = document.getElementById("question2");
+            content2.style.display = "none";
+            // var pass = document.getElementById("password");
+            // pass.setAttribute("type", "hidden");
+            // var submit = document.getElementById("submit");
+            // submit.setAttribute("type", "hidden");
+         }
+
+      </script>
+   </body>
+</html>
