@@ -13,13 +13,16 @@ def home():
 
 @app.route('/', methods=['POST'])
 def my_form_post():
-    payload={
-        'userId': request.form['username'],
-        'password': request.form['password'],
-        'Cluster_Id':'8'
-    }
-    data = checkPay(payload)
-    return render_template('hello_there.html',data = data)
+    try: 
+        payload={
+            'userId': request.form['username'],
+            'password': request.form['password'],
+            'Cluster_Id':'8'
+        }
+        data = checkPay(payload)
+        return render_template('hello_there.html',data = data)
+    except:
+        return render_template("error.html")
 
 def checkPay(payload):
    
