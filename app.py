@@ -4,7 +4,12 @@ from selenium import webdriver
 import time 
 import re
 app = Flask(__name__)
-
+GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
+CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument('--disable-gpu')
+chrome_options.add_argument('--no-sandbox')
+chrome_options.binary_location = GOOGLE_CHROME_PATH
 
 @app.route("/")
 def home():
@@ -18,7 +23,7 @@ def my_form_post():
     return render_template('hello_there.html',data = data)
 
 def checkPay(userInput,passInput):
-    browser = webdriver.Chrome(executable_path="C:/Users/harith/Downloads/chromedriver_win32 (3)/chromedriver.exe")
+    browser = webdriver.Chrome(execution_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)    
     todayDate = datetime.today()
     yesterdayDate = todayDate - timedelta(days=1)
     url1 = "https://abs.rafflesmedical.com.sg/eroster/Account/Logout"
