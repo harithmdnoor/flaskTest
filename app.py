@@ -62,6 +62,8 @@ def checkPay(payload):
                     junePay+=((((coList[i]-ciList[i])-timedelta(hours=1)).total_seconds()/3600)*13)*.8
                 elif shiftList[i].split(" ")[2]=="Jul":
                     julyPay+=((((coList[i]-ciList[i])-timedelta(hours=1)).total_seconds()/3600)*13)*.8
+                else:
+                    print(shiftList[i].split(" ")[2])
     returnVal ={"username":payload.get("userId"),
                     "aprilPay": aprilPay,
                     "mayPay": mayPay,
