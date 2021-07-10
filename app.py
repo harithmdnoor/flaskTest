@@ -52,6 +52,11 @@ def checkPay(payload):
             mayPay=0
             junePay=0
             julyPay=0
+            augPay=0
+            sepPay=0
+            octPay=0
+            novPay=0
+            decPay=0
             
             for i in range(len(shiftList)):
                 if shiftList[i].split(" ")[2]=="Apr":
@@ -62,11 +67,28 @@ def checkPay(payload):
                     junePay+=((((coList[i]-ciList[i])-timedelta(hours=1)).total_seconds()/3600)*13)*.8
                 elif shiftList[i].split(" ")[2]=="Jul":
                     julyPay+=((((coList[i]-ciList[i])-timedelta(hours=1)).total_seconds()/3600)*13)*.8
+                elif shiftList[i].split(" ")[2]=="Aug":
+                    augPay+=((((coList[i]-ciList[i])-timedelta(hours=1)).total_seconds()/3600)*13)*.8
+                elif shiftList[i].split(" ")[2]=="Sep":
+                    sepPay+=((((coList[i]-ciList[i])-timedelta(hours=1)).total_seconds()/3600)*13)*.8
+                elif shiftList[i].split(" ")[2]=="Oct":
+                    octPay+=((((coList[i]-ciList[i])-timedelta(hours=1)).total_seconds()/3600)*13)*.8
+                elif shiftList[i].split(" ")[2]=="Nov":
+                    novPay+=((((coList[i]-ciList[i])-timedelta(hours=1)).total_seconds()/3600)*13)*.8
+                elif shiftList[i].split(" ")[2]=="Dec":
+                    decPay+=((((coList[i]-ciList[i])-timedelta(hours=1)).total_seconds()/3600)*13)*.8
+
+
                 else:
                     print(shiftList[i].split(" ")[2])
     returnVal ={"username":payload.get("userId"),
                     "aprilPay": aprilPay,
                     "mayPay": mayPay,
                     "junePay":junePay,
-                    "julyPay":julyPay}
+                    "julyPay":julyPay,
+                    "augPay": augPay,
+                    "sepPay": sepPay,
+                    "octPay":octPay,
+                    "novPay":novPay,
+                    "decPay": decPay}
     return returnVal
