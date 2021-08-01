@@ -6,6 +6,55 @@ h1{
     margin-top: 40px;
     margin-bottom: 40px;
 }
+
+body {
+  background-color: #999;
+  font-family: 'Roboto', sans-serif;
+
+}
+ul{
+  list-style-type: none;
+  padding: 0;
+}
+
+li{
+  padding: 20px;
+  padding-bottom: 50px;
+  background: white;
+  font-size: 20px;
+  color: black;
+  position: relative;
+  border: .5px solid #e6e6e6;
+  height: 46px;
+}
+
+li:nth-child(even){
+  padding: 20px;
+  padding-bottom: 50px;
+  background: white;
+}
+
+li span{
+  display: block;
+}
+
+li span:nth-child(2){
+  font-size: 24px;
+  margin-top: 6px;
+  color: #999;
+}
+
+li div{
+  position: absolute;
+  top: 0;
+  right: 0px;
+  background: rgba(255,255,255,0.6);
+  width: 40px;
+  text-align: center;
+  padding: 10px 0;
+  font-weight:  bold;
+  cursor:  pointer;
+}
 .overlay {
   height: 100%;
   width: 100%;
@@ -65,21 +114,8 @@ img{
     margin-bottom: 20px ;
   
 }
-.loginfield {
-    border: none;
-}
-.backBtn {
-  color: #000 !important;
-  text-decoration: none;
-  background: white;
-  padding: 10px;
-  border: 1px solid #d2d2d2;
-  transition: all 0.4s ease 0s;
-  font-size: 15px;
-  border-radius: 60px;
-  margin: 10px;
-  align-self:center;
-}
+
+
 .transition, form button, form .question label, form .question input[type="text"] {
     -moz-transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
     -o-transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);

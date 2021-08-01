@@ -20,7 +20,7 @@ def my_form_post():
             'Cluster_Id':'8'
         }
         data = checkPay(payload)
-        return render_template('hello_there.html',data = data)
+        return render_template('results.html',data = data)
     except:
         return render_template("error.html")
 
@@ -79,8 +79,7 @@ def checkPay(payload):
                     decPay+=((((coList[i]-ciList[i])-timedelta(hours=1)).total_seconds()/3600)*13)*.8
 
 
-                else:
-                    print(shiftList[i].split(" ")[2])
+                
     returnVal ={"username":payload.get("userId"),
                     "aprilPay": aprilPay,
                     "mayPay": mayPay,
